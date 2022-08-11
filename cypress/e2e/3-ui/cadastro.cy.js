@@ -20,7 +20,7 @@ beforeEach(() => {
         cy.contains(nome).should('exist')
     });
 
-    it('Deve validar mensagem quando cadastrar com email repetido', () => {
+    it.only('Deve validar mensagem quando cadastrar com email repetido', () => {
         let email = faker.internet.email()
         cy.cadastro('Thiago', email, 'teste@123', 'teste@123')
         cy.get('[data-test="navbar-logout"]').click() //logout
