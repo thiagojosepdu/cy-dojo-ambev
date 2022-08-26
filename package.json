@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy-dashboard": "npx cypress run --record --key 6b4dc29a-d63d-4f07-a3bc-e4b3",
-    "cy-run":"npx cypress run --browser chrome"
+    "cy-run": "npx cypress run --env allure=true"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "cypress-cucumber-preprocessor": "^4.3.1"
   },
   "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.28.5",
     "faker-br": "^0.4.1"
   }
 }
