@@ -7,7 +7,7 @@ describe('Funcionalidade: Login', () => {
         cy.visit('login')
     });
     
-    it.only('Deve fazer login com sucesso', () => {
+    it('Deve fazer login com sucesso', () => {
         cy.login('Ivani.Melo99@live.com', 'teste@123')
         cy.get('[data-test="dashboard-welcome"]').should('contain', 'Bem-vindo')
     });
@@ -22,6 +22,12 @@ describe('Funcionalidade: Login', () => {
     it('Deve fazer login com sucesso - Usando importação de dados', () => {
         cy.login(usuarios[2].usuario, usuarios[2].senha)
         cy.get('[data-test="dashboard-welcome"]').should('contain', 'Bem-vindo')
+    });
+
+    it.only('Deve fazer login com sucesso - Usando App Actions', () => {
+        cy.LoginAPP('thiagoambev@gmail.com','VuxPABTaSSnRns3')
+        cy.visit('dashboard')
+        
     });
 
 });

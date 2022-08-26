@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy-dashboard": "npx cypress run --record --key 6b4dc29a-d63d-4f07-a3bc-e4b3",
+    "cy-run":"npx cypress run --browser chrome"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,9 @@
   },
   "homepage": "https://github.com/fabiocaraujo/cy-dojo-ambev#readme",
   "devDependencies": {
-    "cypress": "^10.4.0"
+    "@badeball/cypress-cucumber-preprocessor": "^12.1.0",
+    "cypress": "^10.4.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
   },
   "dependencies": {
     "faker-br": "^0.4.1"

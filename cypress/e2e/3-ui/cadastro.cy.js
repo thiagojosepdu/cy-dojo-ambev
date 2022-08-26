@@ -1,6 +1,8 @@
 /// <reference types="cypress" />
 const faker = require('faker-br');
 
+import cadastroPage from "../../support/pages/cadastro.page"
+
 describe('Funcionalidade: Cadastro', () => {
 
 beforeEach(() => {
@@ -20,7 +22,7 @@ beforeEach(() => {
         cy.contains(nome).should('exist')
     });
 
-    it.only('Deve validar mensagem quando cadastrar com email repetido', () => {
+    it('Deve validar mensagem quando cadastrar com email repetido', () => {
         let email = faker.internet.email()
         cy.cadastro('Thiago', email, 'teste@123', 'teste@123')
         cy.get('[data-test="navbar-logout"]').click() //logout
@@ -28,6 +30,14 @@ beforeEach(() => {
         cy.get('[data-test="alert"]').should('contain', 'Usuário já registrado')
         
     });
+
+    it.only('Deve fazer cadastro com sucesso - Usando pages', () => {//Page Object
+        var nome = faker.name.findName()
+        var email = faker.internet.email()
+
+        cadastroPage.cadastro(nome, email, 'teste@123', 'teste@123')
+        cy.get('[data-test="dashboard-welcome"]').should('contain', 'Bem-vindo')
+    })
 
 
 
